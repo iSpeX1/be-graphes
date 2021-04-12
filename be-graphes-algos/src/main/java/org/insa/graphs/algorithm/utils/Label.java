@@ -1,8 +1,6 @@
-package org.insa.graphs.algorithm.shortestpath;
+package org.insa.graphs.algorithm.utils;
 
-import org.insa.graphs.model.Arc;
-
-
+import org.insa.graphs.model.*;
 
 public class Label {
    
