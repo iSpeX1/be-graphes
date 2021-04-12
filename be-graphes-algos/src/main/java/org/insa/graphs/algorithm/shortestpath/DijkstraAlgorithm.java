@@ -28,10 +28,13 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
         etiquettes.get(data.getOrigin()).setCost(0);
         tas.insert(etiquettes.get(data.getOrigin()));
 
-        //Label le plus intéressant
-        Label small = null;
-        // Node de destination
-        Node dest = data.getDestination();
+        
+
+        while(tas.isEmpty() == false){
+
+            //page 90 poly graphe
+
+        }
 
 
         return solution;
