@@ -1,13 +1,11 @@
 package org.insa.graphs.algorithm.shortestpath;
 
-import org.insa.graphs.algorithm.utils.Label;
+import org.insa.graphs.algorithm.utils.*;
 import org.insa.graphs.model.*;
+
 import java.util.HashMap;
 
 public class DijkstraAlgorithm extends ShortestPathAlgorithm {
-
-
-
     
     public DijkstraAlgorithm(ShortestPathData data) {
         super(data);
@@ -17,15 +15,24 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
     protected ShortestPathSolution doRun() {
         final ShortestPathData data = getInputData();
         ShortestPathSolution solution = null;
-        // TODO:
 
-        HashMap<Node, Label> Etiquette = new HashMap<Node, Label>();
-
-        //On recupere la taille du graphe
-
-        //Pour initiqliser le grqphe et associer un label q chaque noeud 
-        //on vq parcourir l'ensemble du graph et faire un hashmap put(noeud,Label)
+        //On parcourt le graph et on assigne un Label à chaque noeud
+        HashMap<Node, Label> etiquettes = new HashMap<Node, Label>();
+        for (Node n : data.getGraph().getNodes()) {
+            etiquettes.put(n, new Label(n, Float.POSITIVE_INFINITY , null));
+        }
         
+        //Initialisation du tas binaire 
+        BinaryHeap<Label> tas = new BinaryHeap<Label>();
+        //Insertion de l'origine
+        etiquettes.get(data.getOrigin()).setCost(0);
+        tas.insert(etiquettes.get(data.getOrigin()));
+
+        //Label le plus intéressant
+        Label small = null;
+        // Node de destination
+        Node dest = data.getDestination();
+
 
         return solution;
     }

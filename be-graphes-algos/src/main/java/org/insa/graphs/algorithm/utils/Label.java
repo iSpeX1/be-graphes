@@ -2,25 +2,40 @@ package org.insa.graphs.algorithm.utils;
 
 import org.insa.graphs.model.*;
 
-public class Label {
+public class Label implements Comparable<Label>{
    
-    private int current_sommet;
+    private Node current_sommet;
 
     private boolean marque;
 
-    private int cost; 
+    private float cost; 
 
     private Arc pere;
 
-    public Label(int Current_Sommet, boolean Marque, int Cost, Arc Pere){
-        this.current_sommet = Current_Sommet; 
-        this.marque = Marque;
-        this.cost = Cost; 
-        this.pere = Pere;
+    public Label(Node current_sommet, float cost, Arc pere){
+        this.current_sommet = current_sommet; 
+        this.marque = false;
+        this.cost = cost; 
+        this.pere = pere;
     }
 
-    public int getCost(){
+    public void setCost(float cost){
+        this.cost = cost;
+    }
+
+    public float getCost(){
         return this.cost;
     }
+
+    public void setMark(){
+        this.marque = true;
+    }
+
+    @Override
+    public int compareTo(Label other) {
+        return Float.compare(this.cost,other.cost);
+    }
+
+
 
 }
