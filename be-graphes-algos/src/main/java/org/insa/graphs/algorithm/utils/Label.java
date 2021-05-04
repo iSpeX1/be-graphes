@@ -4,7 +4,7 @@ import org.insa.graphs.model.*;
 
 public class Label implements Comparable<Label>{
    
-    private Node current_sommet;
+    private Node node;
 
     private boolean marque;
 
@@ -12,8 +12,8 @@ public class Label implements Comparable<Label>{
 
     private Arc pere;
 
-    public Label(Node current_sommet, float cost, Arc pere){
-        this.current_sommet = current_sommet; 
+    public Label(Node node, float cost, Arc pere){
+        this.node = node; 
         this.marque = false;
         this.cost = cost; 
         this.pere = pere;
@@ -31,11 +31,25 @@ public class Label implements Comparable<Label>{
         this.marque = true;
     }
 
+    public boolean isMarked(){
+        return this.marque;
+    }
+
     @Override
     public int compareTo(Label other) {
         return Float.compare(this.cost,other.cost);
     }
 
+    public Node getNode(){
+        return this.node;
+    }
 
+    public void setFather(Arc pere){
+        this.pere = pere;
+    }
+
+    public Arc getFather(){
+        return this.pere;
+    }
 
 }
