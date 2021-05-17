@@ -27,6 +27,10 @@ public class Label implements Comparable<Label>{
         return this.cost;
     }
 
+    public float getTotalCost(){
+        return this.cost;
+    }
+
     public void setMark(){
         this.marque = true;
     }
@@ -37,7 +41,15 @@ public class Label implements Comparable<Label>{
 
     @Override
     public int compareTo(Label other) {
-        return Float.compare(this.cost,other.cost);
+        int resultat;
+        if(this.getTotalCost() < other.getTotalCost()) {
+            resultat = -1;
+        }else if (this.getTotalCost() == other.getTotalCost()) {
+            resultat = 0;
+        } else {
+            resultat = 1;
+        }
+        return resultat;
     }
 
     public Node getNode(){
