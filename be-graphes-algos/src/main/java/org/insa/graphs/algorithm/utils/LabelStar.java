@@ -4,18 +4,20 @@ import org.insa.graphs.model.*;
 import org.insa.graphs.algorithm.shortestpath.*;
 import org.insa.graphs.algorithm.AbstractInputData;
 
-public class LabelStar extends Label implements Comparable<Label> {
+public class LabelStar extends Label {
     
     private float realCost;
 	
     public LabelStar(Node node, float cost, Arc pere, ShortestPathData data) {
         super(node, cost, pere);
-        float vitesse = (data.getGraph().getGraphInformation().getMaximumSpeed() * 1000) / 3600;
+        
+        float speed = Math.max(data.getMaximumSpeed(), data.getGraph().getGraphInformation().getMaximumSpeed()) / (3600/1000);
         float distanceDirecte = (float)Point.distance(node.getPoint(), data.getDestination().getPoint());
+        
         if (data.getMode() == AbstractInputData.Mode.LENGTH) {
         	this.realCost = distanceDirecte;
         } else {
-        	this.realCost = distanceDirecte / vitesse;
+        	this.realCost = distanceDirecte / speed;
         }
     }
     

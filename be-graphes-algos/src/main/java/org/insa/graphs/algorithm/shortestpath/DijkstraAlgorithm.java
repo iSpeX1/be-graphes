@@ -100,7 +100,11 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
             // On renvoie la solution
             solution = new ShortestPathSolution(data, Status.OPTIMAL, new Path(graph, arcs));
         }
-
         return solution;
     }
+
+    protected Label createLabel(Node node, float cost, Arc pere, ShortestPathData data){
+        return new Label(node, Float.POSITIVE_INFINITY, null);
+    }
+
 }

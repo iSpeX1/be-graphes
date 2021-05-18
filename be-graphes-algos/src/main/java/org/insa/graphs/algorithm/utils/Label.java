@@ -44,10 +44,10 @@ public class Label implements Comparable<Label>{
         int resultat;
         if(this.getTotalCost() < other.getTotalCost()) {
             resultat = -1;
-        }else if (this.getTotalCost() == other.getTotalCost()) {
-            resultat = 0;
-        } else {
+        }else if (this.getTotalCost() > other.getTotalCost()) {
             resultat = 1;
+        } else {
+            resultat = 0;
         }
         return resultat;
     }

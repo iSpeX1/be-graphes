@@ -9,7 +9,8 @@ public class AStarAlgorithm extends DijkstraAlgorithm {
         super(data);
     }
 
-    protected Label createLabel(Node node, float cost, Arc father, ShortestPathData data) {
-    	return new LabelStar(node, cost, father, data);
+    @Override
+    protected Label createLabel(Node node, float cost, Arc pere, ShortestPathData data) {
+    	return new LabelStar(node, cost, pere, data);
     }
 }
