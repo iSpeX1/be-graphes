@@ -3,8 +3,6 @@ package org.insa.graphs.algorithm.utils;
 import org.insa.graphs.model.*;
 import org.insa.graphs.algorithm.shortestpath.*;
 
-import javax.management.RuntimeErrorException;
-
 import org.insa.graphs.algorithm.AbstractInputData;
 
 public class LabelStar extends Label {
