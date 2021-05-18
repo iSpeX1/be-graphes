@@ -26,7 +26,7 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
         //On parcourt le graphe et on assigne un Label à chaque noeud
         HashMap<Node, Label> etiquettes = new HashMap<Node, Label>();
         for (Node n : graph.getNodes()) {
-            etiquettes.put(n, new Label(n, Float.POSITIVE_INFINITY , null));
+            etiquettes.put(n, createLabel(n, Float.POSITIVE_INFINITY , null, data));
         }
         
         //Initialisation du tas binaire 
