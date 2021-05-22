@@ -6,13 +6,13 @@ public class Label implements Comparable<Label>{
    
     private Node node;
 
-    private boolean marque;
+    private Boolean marque;
 
-    private float cost; 
+    private Float cost; 
 
     private Arc pere;
 
-    public Label(Node node, float cost, Arc pere){
+    public Label(Node node, Float cost, Arc pere){
         this.node = node; 
         this.marque = false;
         this.cost = cost; 
